@@ -1,0 +1,8 @@
+<view>
+  <map class='bgMap' id='myMap' latitude='{{latitude}}' longitude='{{longitude}}'></map>
+  <view class='.a'>
+  <input  class='.c' ></input>
+  </view>
+  <image class='location' 
+    src='./../../images/location.png'  bindtap='getMyLocation'></image>
+</view>

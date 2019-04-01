@@ -1,0 +1,50 @@
+<view class='login_image'>
+  <image style="width: 80px; height: 80px;" src="./../../images/bus.png"></image>
+</view>
+<view class='page_body'>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          <view class="weui-label">
+            <image src="./../../images/yonghu.png" class="icon" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入用户名或手机号" bindinput='username' />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          <image src="./../../images/mima.png" class="icon" />
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='password' placeholder="请输入密码" bindinput='password' />
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <button type="primary" bindtap='login'>登陆</button>
+    <button type="primary" bindtap='regist'>注册</button>
+  </view>
+  <view class="line">
+    <span>其他登陆方式</span>
+  </view>
+  <view class="content">
+    <view>
+      <image src="./../../images/qq.png" class="icon2" />
+    </view>
+    <view>
+      <image src="./../../images/wx.png" class="icon2" />
+    </view>
+    <view>
+      <image src="./../../images/wb.png" class="icon2" />
+    </view>
+    <view>
+      <image src="./../../images/zhifubao.png" class="icon2" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+<view class="map_container">
+  <!--定义页面结构，可以使用地图组件也能使用其他组件 -->
+</view>

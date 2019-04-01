@@ -1,0 +1,33 @@
+/* pages/regist/regist.wxss */
+.content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.page_body{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 50px;
+}
+
+
+button{
+  width: 120px;
+}
+.login_image{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+}
+.weui-label{
+  width: 80px;
+}
