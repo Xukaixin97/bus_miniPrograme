@@ -2,6 +2,7 @@
   <image style="width: 80px; height: 80px;" src="./../../images/bus.png"></image>
 </view>
 <view class='page_body'>
+<i-toast id="toast" />
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">

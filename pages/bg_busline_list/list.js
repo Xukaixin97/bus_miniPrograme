@@ -22,7 +22,7 @@ Page({
     //获取分类文章列表
     var that = this;
     wx.request({
-      url: "http://localhost:8080/getInfo",
+      url: "http://localhost:8089/bus/getInfo",
       method: 'GET',
       dataType: 'json',
       header: {
