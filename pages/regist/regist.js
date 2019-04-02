@@ -11,7 +11,7 @@ Page({
     telephone: '',//手机号
     res_code: '',//服务器返回的验证码
     isAgree: true, //统一协议
-    checkUserIfEx:true
+    checkUserIfEx: true
   },
   //赋值
   username: function (e) {
@@ -42,20 +42,27 @@ Page({
    * @param {*} e 
    */
   getCode: function () {
-    var that = this
-    wx.request({
-      url: "http://localhost:8089/user/getSMS",
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        'telephone': that.data.telephone
-      },
-      success: function (res) {
-        that.data.res_code = res.data
-      }
-    })
+    if (this.data.telephone == "") {
+      $Toast({
+        content: "请输入手机号",
+        type: 'warning'
+      })
+    } else {
+      var that = this
+      wx.request({
+        url: "http://localhost:8089/user/getSMS",
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          'telephone': that.data.telephone
+        },
+        success: function (res) {
+          that.data.res_code = res.data
+        }
+      })
+    }
   },
 
   initValidate() {
@@ -91,10 +98,10 @@ Page({
     this.WxValidate.addMethod('assistance', (value, param) => {
       return this.WxValidate.optional(value) || (/^[a-zA-Z0-9_]{6,18}$/.test(value))
     }, '密码由6-18位的英文大小、数字、下划线组成');
-    
+
   },
   checkUserIfEx(e) {
-    var that=this
+    var that = this
     wx.request({
       url: 'http://localhost:8089/user/checkUsernameIfExist',
       method: 'POST',
@@ -103,14 +110,14 @@ Page({
       success: res => {
         console.log(res.data)
         if (res.data == true) {
-          that.data.checkUserIfEx=false;
+          that.data.checkUserIfEx = false;
           $Toast({
             content: '用户名存在',
             type: 'warning'
           });
-        }else{
-          that.data.checkUserIfEx=true;
-          
+        } else {
+          that.data.checkUserIfEx = true;
+
         }
       }
     })
@@ -128,15 +135,15 @@ Page({
       });
       return false
     }
-    if(this.data.checkUserIfEx==false){
+    if (this.data.checkUserIfEx == false) {
       $Toast({
         content: '用户名已存在',
         type: 'warning'
       });
       return false
-      
+
     }
-   
+
     wx.request({
       url: 'http://localhost:8089/user/register',
       method: 'POST',
