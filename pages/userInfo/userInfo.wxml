@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="" >
+        <text class="title" selectable="false" space="false" decode="false">个人资料</text>
+    </view>
+    <view class="" >
+        <i-cell-group>
+            <i-cell title="头像" is-link url="/pages/dashboard/index"></i-cell>
+            <i-cell title="昵称" is-link url="/pages/dashboard/index"></i-cell>
+            <i-cell title="性别" is-link url="/pages/dashboard/index"></i-cell>
+            <i-cell title="年龄" is-link url="/pages/dashboard/index"></i-cell>
+        </i-cell-group>
+    </view>
+</view>

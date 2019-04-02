@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/userInfo/userInfo",
     "pages/index/index",
     "pages/login/login",
     "pages/regist/regist",
     "pages/bg_busline_list/list",
-    
     "pages/logs/logs"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,5 +19,4 @@
       "desc": "你的位置信息将用于地图展示"
     }
   }
-  
 }
