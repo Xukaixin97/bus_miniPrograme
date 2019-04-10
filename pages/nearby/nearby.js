@@ -21,21 +21,15 @@ Page({
    */
   onLoad: function (options) {
     //console.log(options)
+    //设置标题名
     wx.setNavigationBarTitle({
       title: options.keywords
     })
-
-    var that = this;
-
     this.setData({
       point: appData.mapInfo.longitude + "," + appData.mapInfo.latitude,
       keywords: options.keywords
-
     })
-
     this.getDataFunc();
-
-
   },
 
   onReachBottom: function (e) {
