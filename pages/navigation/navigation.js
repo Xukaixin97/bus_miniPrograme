@@ -22,10 +22,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     
     this.setData({
-      changeData:options,
+      changeData:{
+        startName:'我的位置',
+        startPoint: appData.mapInfo.longitude + ',' + appData.mapInfo.latitude,
+      },
       homePart: appData.homePart,
       companyPart: appData.companyPart
     })
@@ -40,13 +43,11 @@ Page({
     wx.chooseLocation({
       type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
       success(res) {
-
         if (res.name != '') {
           if (that.data.endPointBean) {
             wx.navigateTo({
               url: "../route/route?startName=" + res.name + "&startPoint=" + res.longitude + ',' + res.latitude + "&endName=" + that.data.changeData.endName + "&endPoint=" + that.data.changeData.endPoint + "&ways=" + that.data._num
             })
-
             that.setData({
               changeData: {
                 startName: res.name,
@@ -203,7 +204,6 @@ Page({
 
   },
   goTo:function(){
-
     if (this.data.endPointBean && this.data.startPointBean){
       wx.navigateTo({
         url: "../route/route?startName=" + this.data.changeData.startName + "&startPoint=" + this.data.changeData.startPoint + "&endName=" + this.data.changeData.endName + "&endPoint=" + this.data.changeData.endPoint + "&ways=" + this.data._num,

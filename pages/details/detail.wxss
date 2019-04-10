@@ -1,0 +1,30 @@
+.head {
+    font-size: 10px;
+    color: black;
+    height: 20vh
+}
+.head view{
+    margin-left: 20px;
+    
+}
+.mid {
+    display: flex;
+    background-color: rgb(219, 216, 216);
+    height: 77vh;
+}
+
+text {
+    margin-top: 5px
+}
+
+.scr {
+    display: flex;
+    width: 90%;
+    height: 73vh;
+    margin:auto;
+    margin-top:10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 7px rgb(126, 129, 131);
+    padding-left: 20px;
+}

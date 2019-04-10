@@ -1,22 +1,54 @@
 {
   "pages": [
-    "pages/userInfo/userInfo",
     "pages/index/index",
+    "pages/navigation/navigation",
+    "pages/route/route",
+    "pages/nearby/nearby",
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/details/detail",
+    "pages/userInfo/userInfo",
     "pages/login/login",
     "pages/regist/regist",
     "pages/bg_busline_list/list",
     "pages/logs/logs"
-   
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "blue",
+    "navigationBarBackgroundColor": "#4188fe",
     "navigationBarTitleText": "Test",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
+
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于地图展示"
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/搜索1.png",
+        "iconPath": "images/搜索1.png",
+        "pagePath": "pages/index/index",
+        "text": "搜索"
+      },
+      {
+        "selectedIconPath": "images/路线.png",
+        "iconPath": "images/路线.png",
+        "pagePath": "pages/navigation/navigation",
+        "text": "路线"
+      },
+      {
+        "selectedIconPath": "images/周边.png",
+        "iconPath": "images/周边.png",
+        "pagePath": "pages/search/search",
+        "text": "周边"
+      }
+    ]
   }
 }

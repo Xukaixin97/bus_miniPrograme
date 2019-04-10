@@ -1,30 +1,49 @@
-.bgMap {
-  width: 100%;
-  height: 100vh;
+.head{
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  margin-top: 10px;
+  color: black;
+  height:8vh
+}
+.head image{
+  height: 50rpx;
+  width: 50rpx;
+  color: blanchedalmond
+}
+.mid{
+  display: flex;
+  height:13vh
+}
+.title1{
+  font-size: 17px;
+  margin-left: 20px;
+  font: weight;
+}
+.search{
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+  border-radius: 20rpx;
+  width: 280px;
+  height: 40px;
+  margin:auto;
+  margin-top: 10px;
+}
+view.search image {
+  height: 40rpx;
+  width: 40rpx;
+  align-self: center;
+  margin-left: 20rpx;
+  margin-right: 30rpx;
 }
 
-.c {
-  width: 80%;
-  height: 8%;
-  background-color: rgb(255, 255, 255);
-  margin-top: 10vw;
-  display: flex;
-  position: fixed;
-  top: 0;
+.bot{
+
+  height:100vh
 }
-.a {
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  width: 100%;
-  height: 100%;
-}
-.location{
-  width: 40px;
-  height: 40px;
-  display: flex;
-  position: fixed;
-  margin-left: 20px;
-  margin-bottom: 40px;
-  bottom: 0;
+
+.resultList{
+  margin:auto;
+  width: 80%
 }

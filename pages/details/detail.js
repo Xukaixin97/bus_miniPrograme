@@ -1,34 +1,25 @@
-var amapFile = require('./../../libs/amap-wx.js');
-
-// pages/test/test.js
+// pages/detail/de tail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [
+      {
+        "stationname": 123
+      }, 
+      {
+        "stationname": 12312
+      }
+    ]
   },
 
-  onTap: function () {
-     
-
-  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
-    var that = this;
-    var myAmapFun = new amapFile.AMapWX({key:'77e7496b934436767c9c3fc4743b46d1'});
-    myAmapFun.getPoiAround({
-      success: function(data){
-        //成功回调
-      },
-      fail: function(info){
-        //失败回调
-        console.log(info)
-      }
-    })
+  onLoad: function (options) {
+
   },
 
   /**

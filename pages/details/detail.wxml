@@ -1,0 +1,18 @@
+<view class="main" hover-class="none" hover-stop-propagation="false">
+    <view class="head" hover-class="none" hover-stop-propagation="false">
+        <view class="stationname" style="font-size:23px" hover-class="none" hover-stop-propagation="false">
+            a-b站
+        </view>
+        <view class="lenpri" style="font-size:15px">全程100公路 票价:10</view>
+        <view class="interval" style="font-size:15px">发车间隔 : 约4分钟</view>
+        <view class="time" style="font-size:15px">运营时间 : 5.44-10.30</view>
+    </view>
+    <view class="mid" hover-class="none" hover-stop-propagation="false">
+        <scroll-view class="scr" scroll-y style="" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+            <view style="margin-top:20px"></view>
+            <view wx:for="{{list}}">
+                <view > {{item.stationname}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
