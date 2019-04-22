@@ -1,18 +1,38 @@
 <view class="main" hover-class="none" hover-stop-propagation="false">
-    <view class="head" hover-class="none" hover-stop-propagation="false">
-        <view class="stationname" style="font-size:23px" hover-class="none" hover-stop-propagation="false">
-            a-b站
+     <view style="margin-top:20px"></view>
+    <view class="head" hover-class="none" hover-stop-propagation="false" wx:for="{{detailInfo}}">
+        <view class="name" style="font-size:20px" hover-class="none" hover-stop-propagation="false">
+            {{item.name}}
         </view>
-        <view class="lenpri" style="font-size:15px">全程100公路 票价:10</view>
-        <view class="interval" style="font-size:15px">发车间隔 : 约4分钟</view>
-        <view class="time" style="font-size:15px">运营时间 : 5.44-10.30</view>
+        <view class="lenpri" style="font-size:15px">全  程: {{item.distance}} 公里</view>
+        <view class="interval" style="font-size:15px">
+            票  价: {{item.basicprice}}-{{item.totalprice}}元
+        </view>
+        <view class="time" style="font-size:15px">运营时间: {{item.stime}}-{{item.etime}}</view>
+                                                
     </view>
     <view class="mid" hover-class="none" hover-stop-propagation="false">
-        <scroll-view class="scr" scroll-y style="" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <scroll-view class="scr" scroll-y style="" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
             <view style="margin-top:20px"></view>
-            <view wx:for="{{list}}">
-                <view > {{item.stationname}}</view>
+            <view class="img" >
+                <image src="../../images/startpoint0.png"></image>
+                <view  style="margin-left:34px;padding:auto">{{stationInfo[0]}}</view>
             </view>
+            <view wx:for="{{stationInfo}}" style="display:flex" wx:if="{{index>1&&index<(stationInfo.length-1)}}">
+                <view class="dotline">
+                    <!-- 圆点 -->
+                    <view class="dot"></view>
+                    <!-- 竖线 -->
+                    <view class="line"></view>
+                    <!-- 时间戳 -->
+                </view>
+                <view class="stations" style="margin-left:65px">{{item}}</view>
+            </view>
+            <view class="img" hover-class="none" >
+                 <image src="../../images/endpoint0.png"></image>
+                 <view  style="margin-left:34px;padding:auto">{{stationInfo[stationInfo.length-1]}}</view>
+            </view>
+            <view style="margin-top:50px"></view>
         </scroll-view>
     </view>
 </view>

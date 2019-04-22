@@ -1,17 +1,19 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/navigation/navigation",
-    "pages/route/route",
+    "pages/login/login",
+    "pages/regist/regist",  
+    
     "pages/nearby/nearby",
     "pages/search/search",
-    "pages/detail/detail",
     "pages/details/detail",
     "pages/userInfo/userInfo",
-    "pages/login/login",
-    "pages/regist/regist",
-    "pages/bg_busline_list/list",
+    
+    "pages/detail/detail",
+    "pages/navigation/navigation",
+    "pages/route/route",
     "pages/logs/logs"
+    
     
   ],
   "window": {

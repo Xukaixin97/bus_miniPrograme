@@ -26,7 +26,7 @@ button{
 .icon{
   display: flex;
   justify-content: center;
-  margin: auto;
+
   width: 30px;
   height: 30px;
 }
@@ -39,7 +39,7 @@ button{
 
 }
 .weui-label{
-  width: 90px;
+  width: 60px;
 }
 .divLine{
  background: #E0E3DA;

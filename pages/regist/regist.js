@@ -2,7 +2,7 @@
 
 import WxValidate from '../../utils/WxValidate.js'
 const { $Toast } = require('../../dist/base/index');
-const app = getApp();
+const appData = getApp().globalData;
 Page({
 
   data: {
@@ -11,7 +11,7 @@ Page({
     telephone: '',//手机号
     res_code: '',//服务器返回的验证码
     isAgree: true, //统一协议
-    checkUserIfEx: true
+    checkUserIfEx: false
   },
   //赋值
   username: function (e) {
@@ -32,14 +32,20 @@ Page({
   onLoad: function (options) {
     /**
    * 初始化表单
-   * @param {*} error 
    */
     this.initValidate();
   },
+  //是否同意协议
+  bindAgreeChange(){
+    this.setData({
+      isAgree: !this.data.isAgree
+    })
+    if(this.data.isAgree == false){
 
+    }
+  },
   /**
    * 获取注册短信
-   * @param {*} e 
    */
   getCode: function () {
     if (this.data.telephone == "") {
@@ -50,7 +56,7 @@ Page({
     } else {
       var that = this
       wx.request({
-        url: "http://localhost:8089/user/getSMS",
+        url: 'http://' + appData.host + ':8089/user/getSMS',
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -60,25 +66,33 @@ Page({
         },
         success: function (res) {
           that.data.res_code = res.data
+          console.log(res.data)
         }
       })
     }
   },
-
+/**
+ * 定义验证规则
+ */
   initValidate() {
     const rules = {
       loginName: {
         required: true,
         rangelength: [6, 16],
+        validatorName:true
       },
       loginPassword: {
         required: true,
+        assistance:true
       },
       telephone: {
         required: true,
         tel: true
       },
-
+      code: {
+        required: true,
+        validatorCode:true
+      },
     }
     const messages = {
       loginName: {
@@ -91,33 +105,50 @@ Page({
       telephone: {
         required: "请输入手机号",
         tel: "输入正确的手机号码"
-      }
-
+      },
+      code: {
+        required: "请输入验证码",
+      },
     }
+    var that=this
     this.WxValidate = new WxValidate(rules, messages);
     this.WxValidate.addMethod('assistance', (value, param) => {
       return this.WxValidate.optional(value) || (/^[a-zA-Z0-9_]{6,18}$/.test(value))
     }, '密码由6-18位的英文大小、数字、下划线组成');
+    this.WxValidate.addMethod('validatorCode', (value, param) => {
+      return this.WxValidate.optional(value) || (that.data.res_code==that.data.code)
+    }, "验证码错误");
+    this.WxValidate.addMethod('validatorName', (value, param) => {
+      return this.WxValidate.optional(value) || (!that.data.checkUserIfEx)
+    }, "用户名存在啦");
+
 
   },
+  /**
+   * 失去焦点验证用户是否存在
+   * @param {*} e 
+   */
   checkUserIfEx(e) {
     var that = this
     wx.request({
-      url: 'http://localhost:8089/user/checkUsernameIfExist',
+      url: 'http://' + appData.host + ':8089/user/checkUsernameIfExist',
       method: 'POST',
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       data: { 'username': e.detail.value },
       success: res => {
         console.log(res.data)
         if (res.data == true) {
-          that.data.checkUserIfEx = false;
+          that.setData({
+            checkUserIfEx:true
+          })
           $Toast({
             content: '用户名存在',
             type: 'warning'
           });
-        } else {
-          that.data.checkUserIfEx = true;
-
+        }else{
+          that.setData({
+            checkUserIfEx:false
+          })
         }
       }
     })
@@ -135,17 +166,9 @@ Page({
       });
       return false
     }
-    if (this.data.checkUserIfEx == false) {
-      $Toast({
-        content: '用户名已存在',
-        type: 'warning'
-      });
-      return false
-
-    }
 
     wx.request({
-      url: 'http://localhost:8089/user/register',
+      url: 'http://' + appData.host + ':8089/user/register',
       method: 'POST',
       header: { 'content-type': 'application/json' },
       data: JSON.stringify(params),
@@ -153,10 +176,13 @@ Page({
         console.log("回调函数:" + res.data)
         var resData = res.data;
         if (resData == true) {
+
           $Toast({
             content: '注册成功',
             type: 'success'
           });
+
+          wx.navigateTo({ url: '../login/login' });
         } else {
           $Toast({
             content: '注册失败 ',

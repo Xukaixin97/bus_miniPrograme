@@ -43,11 +43,11 @@
         </view>
       </view>
 
-      <button open-type='share' class="share" >
+      <!-- <button open-type='share' class="share" >
         <image src="../../images/share.png"></image>
         <label>分享</label>
         <text>把导航lite分享给好友</text>
-      </button>
+      </button> -->
 
       <view wx:if="{{ hasHistory != '' }}" class="history-wrapper">
         <view class="hasHistory"  wx:for="{{historyRoute}}" wx:key="{{index}}" wx:for-item="item">

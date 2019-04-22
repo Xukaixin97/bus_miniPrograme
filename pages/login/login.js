@@ -1,6 +1,7 @@
 // pages/login/login.js
 
 const { $Toast } = require('../../dist/base/index');
+const appData = getApp().globalData;
 Page({
 
   /**
@@ -34,7 +35,7 @@ Page({
       // 这里修改成跳转的页面
       var that = this;
       wx.request({
-        url: 'http://localhost:8089/user/login',
+        url: 'http://' + appData.host + ':8089/user/login',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -54,7 +55,7 @@ Page({
             });
             setTimeout(function () {
               wx.reLaunch({
-                url: './../bg_busline_list/list',
+                url: './../index/index',
               })
             }, 1000)
 
@@ -68,7 +69,7 @@ Page({
       })
     }
   },
-  
+
   regist: function () {
     wx.navigateTo({
       url: './../regist/regist',

@@ -34,11 +34,11 @@
             </navigator>
           </view>
         </view>
-        <button open-type='share' class="share">
+        <!-- <button open-type='share' class="share">
           <image src="../../images/share.png"></image>
           <label>分享</label>
           <text>把导航lite分享给好友</text>
-        </button>
+        </button> -->
         <view wx:if="{{ hasHistory != '' }}" class="history-wrapper">
           <view class="hasHistory" wx:for="{{historyData}}" wx:key="{{index}}" wx:for-item="item">
             <navigator wx:if="{{historyData[index].name}}" hover-class="none" url="../site/site?endName= {{historyData[index].name}}&siteimg={{historyData[index].img}}&siteaddress={{historyData[index].address}}&endPoint={{historyData[index].endPoint}}&startPoint={{historyData[index].startPoint}}&startName=我的位置">

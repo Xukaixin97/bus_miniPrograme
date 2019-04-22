@@ -11,6 +11,9 @@
   width: 50rpx;
   color: blanchedalmond
 }
+.main{
+  height: 100vh;
+}
 .mid{
   display: flex;
   height:13vh
@@ -39,11 +42,18 @@ view.search image {
 }
 
 .bot{
-
   height:100vh
 }
 
 .resultList{
   margin:auto;
-  width: 80%
+  width: 80%;
+  height: 60vh
+}
+.empty-history {
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  color: #999;
+  text-align: center;
 }

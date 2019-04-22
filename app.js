@@ -33,10 +33,12 @@ App({
     // })
   },
   globalData: {
+    host:"localhost",
     mapInfo:"",
     mapApi:"https://restapi.amap.com/v3/",
     history:[],
     historyRoute:[],
+    searchHistory:[],
     homePart: {
       homeText: '设置一个地址',
       homePoint: ''

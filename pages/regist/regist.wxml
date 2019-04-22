@@ -10,7 +10,7 @@
             <image src="./../../images/yonghu.png" class="icon" />
           </view>
         <view class="weui-cell__bd">
-          <input class="weui-input"  placeholder="请输入用户名" bindinput="username" bindblur="checkUserIfEx"name="loginName" />
+          <input class="weui-input"  placeholder="请输入用户名" bindinput="username" bindblur="checkUserIfEx" name="loginName" />
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -18,7 +18,7 @@
             <image src="./../../images/mima.png" class="icon" />
           </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入密码" bindinput="password" name="loginPassword" />
+          <input class="weui-input" type="password" placeholder="请输入密码" bindinput="password" name="loginPassword" />
         </view>
       </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">
@@ -46,7 +46,7 @@
     <checkbox-group bindchange="bindAgreeChange" style="justify-content: center;display:flex;margin-top:20px">
       <label class="weui-agree" for="weuiAgree">
         <view class="weui-agree__text">
-          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}"  />
           <view class="weui-agree__checkbox-icon">
             <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="10" wx:if="{{isAgree}}"></icon>
           </view>
@@ -56,7 +56,7 @@
       </label>
     </checkbox-group>
     <view class="weui-btn-area">
-      <button class="weui-btn" type="primary" form-type="submit">确定</button>
+      <button class="weui-btn" type="primary" form-type="submit" disabled="{{!isAgree}}">确定</button>
     </view>
     <i-toast id="toast" />
   </form>
