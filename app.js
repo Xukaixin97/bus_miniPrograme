@@ -33,7 +33,9 @@ App({
     // })
   },
   globalData: {
+    // host:"172.20.10.2",
     host:"localhost",
+
     mapInfo:"",
     mapApi:"https://restapi.amap.com/v3/",
     history:[],

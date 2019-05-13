@@ -19,7 +19,6 @@ Page({
     console.log(options)
     this.setData({
       siteData: options
-
     })
 
     wx.setNavigationBarTitle({

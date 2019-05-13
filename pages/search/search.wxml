@@ -7,7 +7,7 @@
     </view>
     <view class="wrapper-menu">
       <view class="wrapper-lis" wx:for="{{tips}}" wx:key="index">
-        <navigator hover-class="none" url="../site/site?endName= {{tips[index].name}}&siteimg={{tips[index].photos[0].url}}&siteaddress={{tips[index].cityname}}{{tips[index].adname}}{{tips[index].address}}&endPoint={{tips[index].location.longitude}},{{tips[index].location.latitude}}&startPoint={{location}}&startName=我的位置">
+        <navigator hover-class="none" url="../site/site?endName= {{tips[index].name}}&siteimg={{tips[index].photos[0].url}}&siteaddress={{tips[index].cityname}}{{tips[index].adname}}{{tips[index].address}}&endPoint={{tips[index].location.longitude}},{{tips[index].location.latitude}}&startPoint={{location}}&startName={{siteName}}">
           <view class="map-msg">
             <text class="name">{{tips[index].name}}</text>
             <text class="address">
@@ -16,10 +16,12 @@
             <text class="distance">{{tips[index].distance}}m</text>
           </view>
         </navigator>
-        <view class="map-goto">
-          <image src="../../images/goto.png"></image>
-          <text class="goto">去这里</text>
-        </view>
+         <navigator hover-class="none" url="../route/route?startName={{siteName}}&startPoint={{location}}&endName= {{tips[index].name}}&endPoint={{tips[index].location.longitude}},{{tips[index].location.latitude}}&ways=0" >
+          <view class="map-goto">
+            <image src="../../images/goto.png"></image>
+            <text class="goto">去这里</text>
+          </view>
+        </navigator>
       </view>
     </view>
     <block wx:if="{{ hasInput }}">

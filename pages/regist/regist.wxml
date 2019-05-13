@@ -39,7 +39,8 @@
           <input class="weui-input" placeholder="请输入验证码" bindinput="code" name="code" />
         </view>
         <view class="weui-cell__ft">
-          <view class="weui-vcode-btn" bindtap="getCode">获取验证码</view>
+          <!-- <view class="weui-btn_disabled" bindtap="getCode" > {{codeMessage}}</view> -->
+          <button class="weui-btn" type="primary" bindtap="getCode" disabled="{{disabled}}">{{codeMessage}}</button>
         </view>
       </view>
     </view>

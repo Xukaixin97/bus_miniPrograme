@@ -71,7 +71,7 @@ Page({
             page: that.data.page + 1
 
           })
-          console.log(loadData)
+          console.log(that.data.tips)
         }else{
           that.setData({
             toBottom:true

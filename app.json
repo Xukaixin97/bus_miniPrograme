@@ -1,27 +1,25 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/login/login",
-    "pages/regist/regist",  
+    "pages/index/index",
+    "pages/regist/regist",
     
-    "pages/nearby/nearby",
     "pages/search/search",
+    
+    "pages/site/site",
+    "pages/nearby/nearby",
     "pages/details/detail",
     "pages/userInfo/userInfo",
-    
     "pages/detail/detail",
     "pages/navigation/navigation",
     "pages/route/route",
     "pages/logs/logs"
-    
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4188fe",
     "navigationBarTitleText": "Test",
     "navigationBarTextStyle": "white"
-
   },
   "permission": {
     "scope.userLocation": {
@@ -52,5 +50,6 @@
         "text": "周边"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

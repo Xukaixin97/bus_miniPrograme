@@ -1,11 +1,11 @@
 .head {
     font-size: 10px;
     color: black;
-    height: 17vh
+    height: 21vh
 }
 
 .head view {
-    margin-left: 20px;
+    margin-left: 20px
 }
 
 .mid {
@@ -21,11 +21,11 @@ text {
 .scr {
     display: flex;
     width: 90%;
-    height: 70vh;
+    height: 500px;
     margin: auto;
     margin-top: 10px;
     background-color: white;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     box-shadow: 4px 4px 7px rgb(126, 129, 131);
     padding-left: 40px;
     font-size: 18px

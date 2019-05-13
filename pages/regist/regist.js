@@ -11,7 +11,12 @@ Page({
     telephone: '',//手机号
     res_code: '',//服务器返回的验证码
     isAgree: true, //统一协议
-    checkUserIfEx: false
+    checkUserIfEx: false,
+    codeMessage:'获取验证码',
+    disabled:'',
+    seconds:60,
+    // interval:0,
+
   },
   //赋值
   username: function (e) {
@@ -55,22 +60,66 @@ Page({
       })
     } else {
       var that = this
-      wx.request({
-        url: 'http://' + appData.host + ':8089/user/getSMS',
-        method: "POST",
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        data: {
-          'telephone': that.data.telephone
-        },
-        success: function (res) {
-          that.data.res_code = res.data
-          console.log(res.data)
+      // wx.request({
+      //   url: 'http://' + appData.host + ':8089/user/getSMS',
+      //   method: "POST",
+      //   header: {
+      //     'content-type': 'application/x-www-form-urlencoded'
+      //   },
+      //   data: {
+      //     'telephone': that.data.telephone
+      //   },
+      //   success: function (res) {
+      //     that.data.res_code = res.data
+      //     console.log(res.data)
+      //   }
+      // })
+      // that.setData({
+      //   disabled:true
+      // })
+      var times = 60;
+      var interval = setInterval(() => {
+        
+        // console.log(times)
+        times--;
+        if (times == 0) {
+             that.setData({
+                  disabled: false,
+                  codeMessage: "获取验证码",
+             })
+             clearInterval(interval)
+        } else {
+             that.setData({
+                  codeMessage:times + "s",
+                  disabled: true
+             })
         }
-      })
+      }, 1000);
+
     }
   },
+
+  //倒计时
+  countdown(that) {
+    // console.log('count down');
+    var seconds = that.data.seconds;
+    // console.log(seconds);
+    // var captchaLabel = that.data.captchaLabel;
+    if (seconds <= 1) {
+        captchaLabel = '获取验证码';
+        seconds = length;
+        that.setData({
+            captchaDisabled: false
+        });
+    } else {
+        captchaLabel = --seconds + '秒后重新发送'
+    }
+    that.setData({
+        seconds: seconds,
+        captchaLabel: captchaLabel
+    });
+},
+
 /**
  * 定义验证规则
  */

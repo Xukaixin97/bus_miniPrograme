@@ -16,10 +16,11 @@ Page({
     hasHistory: true,
     multiIndex: [0, 0],
     multiArray: [],
-    objectMultiArray: []
+    objectMultiArray: [],
+    getPromptInfo:''
   },
   bindMultiPickerChange: function (e) {
-    console.log("当前"+e.detail.value)
+    // console.log("当前"+e.detail.value)
     var that = this
     that.setData({
       "multiIndex[0]": e.detail.value[0],
@@ -31,7 +32,7 @@ Page({
     console.log(this.data.city)
   },
   bindMultiPickerColumnChange: function (e) {
-    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    // console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
     var that = this
     var cityList=[]
     switch (e.detail.column) {
@@ -41,7 +42,7 @@ Page({
           multiIndex: this.data.multiIndex
         };
         var province = that.data.multiArray[e.detail.column][e.detail.value];
-        console.log(province);
+        // console.log(province);
         wx.request({
           url: 'http://' + appData.host + ':8089/bus/getCityInfo', //开发者服务器接口地址",
           data:{
@@ -50,8 +51,7 @@ Page({
           method: 'GET',
           // dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
           success: res => {
-            console.log(res.data)
-
+            // console.log(res.data)
             for(var i=0;i<res.data.length;i++){
               cityList.push(res.data[i].label)
             }
@@ -60,8 +60,8 @@ Page({
             that.setData(data)
            
           },
-          fail: () => { },
-          complete: () => { }
+          fail: () => {},
+          complete: () => {}
         });
 
       
@@ -85,8 +85,8 @@ Page({
         that.setData({
           multiArray: [res.data, ['北京市']]
         })
-        console.log(that.data.multiArray)
-        console.log(that.data.multiArray[1][that.data.multiIndex[1]])
+        // console.log(that.data.multiArray)
+        // console.log(that.data.multiArray[1][that.data.multiIndex[1]])
       },
       fail: () => { },
       complete: () => { }
@@ -94,23 +94,6 @@ Page({
 
   },
 
-  bindRegionChange(e) {
-    console.log(e.detail.value)
-  },
-  chooseCity() {
-    console.log("123")
-    var that = this;
-    var myAmapFun = new amapFile.AMapWX({ key: 'eeef012afe4c956d0d38fd3a132fb267' });
-    myAmapFun.getRegeo({
-      success: function (data) {
-        //成功回调
-      },
-      fail: function (info) {
-        //失败回调
-        console.log(info)
-      }
-    })
-  },
   storeHistory(e) {
     // console.log(e.data)
     // console.log(e.currentTarget.dataset.gid);
@@ -140,6 +123,17 @@ Page({
     })
   },
   getPromptInfo(e) {
+    console.log(e.value);
+    if(e.detail.value == ""  || e.detail.value == null){
+      this.setData({
+        hasHistory:true
+      })
+    }else{
+      this.setData({
+        hasHistory:false
+      })
+    }
+
     this.setData({
       list: []
     })
@@ -171,6 +165,7 @@ Page({
           that.setData({
             list: result
           });
+          
         },
         fail: () => { },
         complete: () => { }
@@ -186,25 +181,30 @@ Page({
     let pages = getCurrentPages(); //页面栈
     let currPage = pages[pages.length - 1]; //当前页面
     that.setData({
-      list: [] //获取上上级页面传的参数
+      list: [] 
+    })
+    that.setData({
+      ifHidden:true
+    })
+    that.setData({
+      hasHistory:true
     })
   },
+
   onLoad: function () {
     this.getProvince();
     var that = this;
     var myAmapFun = new amapFile.AMapWX({ key: 'eeef012afe4c956d0d38fd3a132fb267' });
     myAmapFun.getRegeo({
       success: function (data) {
-        // console.log(data)
-        // console.log(data[0])
         that.setData({
           city: data[0].regeocodeData.addressComponent.city,
-
         })
+        console.log(that.data.city)
         that.setData({
           'multiArray[1][0]':that.data.city
         })
-        console.log(data[0].regeocodeData.addressComponent.district)
+        // console.log(data[0].regeocodeData.addressComponent.district)
         getApp().globalData.mapInfo = data[0]
         that.setData({
           mapMsg: data[0]
@@ -214,20 +214,6 @@ Page({
         console.log(info)
       }
     });
-    myAmapFun.getWeather({
-      success: function (data) {
-        that.setData({
-          weatherMsg: data.liveData
-        });
-      },
-      fail: function (info) {
-        console.log(info)
-      }
-    })
   },
-
-
-
-
 
 })

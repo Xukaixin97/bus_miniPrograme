@@ -13,6 +13,7 @@ Page({
     hasInput: true,
     hasHistory: true,
     historyData: '',
+    siteName: '我的位置',
     menu: [
       { nameEn: "food", nameCn: "美食" },
       { nameEn: "hotel", nameCn: "酒店" },
@@ -33,9 +34,12 @@ Page({
    */
   onLoad: function () {
 
+
+
   },
 
   bindInput: function (e) {
+
     var that = this;
     var keywords = e.detail.value;
 
@@ -45,7 +49,7 @@ Page({
         url: appData.mapApi + "place/around?key=e96f52f2aaa72ccfcddae396c0293794&keywords=" + keywords + "&location=" + appData.mapInfo.latitude + "," + appData.mapInfo.longitude,
         success: function (data) {
           var points = [];
-          console.log(data);
+          // console.log(data);
           for (var i = 0; i < data.data.pois.length; i++) {
             points.push({
               longitude: data.data.pois[i].location.split(",")[0],
@@ -112,6 +116,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
 
     if (appData.history != '') {
       this.setData({
@@ -130,6 +135,7 @@ Page({
       location: appData.mapInfo.longitude + "," + appData.mapInfo.latitude,
       historyData: appData.history
     })
+    console.log(this.data.location)
   },
 
   /**

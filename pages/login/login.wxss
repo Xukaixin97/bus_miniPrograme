@@ -54,7 +54,7 @@ button{
   font-size: 24rpx;
   color: #aaa;
   background: #ccc;
-  margin-top: 110px;
+  margin-top: 200px;
   margin-bottom: 22px;
 }
 .line span{

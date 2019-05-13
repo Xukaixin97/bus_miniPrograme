@@ -9,7 +9,7 @@
    
       <view class="near-menu">
         <view class="near-lis" wx:for="{{tips}}" wx:key="index" >
-        <navigator hover-class="none" url="../site/site?endName= {{tips[index].name}}&siteimg={{tips[index].photos[0].url}}&siteaddress={{tips[index].cityname}}{{tips[index].adname}}{{tips[index].address}}&startName={{siteName}}&startPoint={{point}}&endPoint={{tips[index].location}}" >
+        <navigator hover-class="none" url="../site/site?endName={{tips[index].name}}&siteimg={{tips[index].photos[0].url}}&siteaddress={{tips[index].cityname}}{{tips[index].adname}}{{tips[index].address}}&startName={{siteName}}&startPoint={{point}}&endPoint={{tips[index].location}}" >
           <image class="near-img" wx:if="{{ tips[index].photos != '' }}" src="{{tips[index].photos[0].url}}"></image>
           <image class="near-img" wx:elif="{{ tips[index].photos == '' }}" src="../../images/nophoto.jpg"></image>
 

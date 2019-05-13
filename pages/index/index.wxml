@@ -32,7 +32,7 @@
     </scroll-view>
   </view>
 
-  <view class="bot">
+  <view class="bot" wx:if="{{ hasHistory != '' }}">
     <view class="title1">历史记录</view>
     <view wx:if="{{ hasHistory != '' }}" class="history-wrapper">
       <view class="resultList" wx:for="{{historyData}}" wx:key="{{index}}" wx:for-item="item">
