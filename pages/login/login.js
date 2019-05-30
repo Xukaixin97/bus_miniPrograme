@@ -58,7 +58,6 @@ Page({
                 url: './../index/index',
               })
             }, 1000)
-
           } else {
             $Toast({
               content: '用户名或密码错误',

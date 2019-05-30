@@ -50,6 +50,11 @@ view.search image {
   width: 80%;
   height: 60vh
 }
+.resultList1{
+  margin:auto;
+  width: 80%;
+  
+}
 .empty-history {
   height: 50px;
   line-height: 50px;

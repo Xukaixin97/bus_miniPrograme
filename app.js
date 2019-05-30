@@ -33,8 +33,11 @@ App({
     // })
   },
   globalData: {
+    // host:"192.168.1.4",
     // host:"172.20.10.2",
-    host:"localhost",
+    host:"172.20.10.4",
+    // host:"172.20.10.15",
+    // host:"localhost",
 
     mapInfo:"",
     mapApi:"https://restapi.amap.com/v3/",

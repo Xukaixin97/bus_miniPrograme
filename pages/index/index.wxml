@@ -35,7 +35,7 @@
   <view class="bot" wx:if="{{ hasHistory != '' }}">
     <view class="title1">历史记录</view>
     <view wx:if="{{ hasHistory != '' }}" class="history-wrapper">
-      <view class="resultList" wx:for="{{historyData}}" wx:key="{{index}}" wx:for-item="item">
+      <view class="resultList1" wx:for="{{historyData}}" wx:key="{{index}}" wx:for-item="item">
         <navigator hover-class="none" url="./../details/detail?msg={{item}}">
           <!-- <text class="" selectable="false" space="false" decode="false">
               {{item}}

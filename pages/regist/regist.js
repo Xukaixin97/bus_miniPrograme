@@ -60,23 +60,23 @@ Page({
       })
     } else {
       var that = this
-      // wx.request({
-      //   url: 'http://' + appData.host + ':8089/user/getSMS',
-      //   method: "POST",
-      //   header: {
-      //     'content-type': 'application/x-www-form-urlencoded'
-      //   },
-      //   data: {
-      //     'telephone': that.data.telephone
-      //   },
-      //   success: function (res) {
-      //     that.data.res_code = res.data
-      //     console.log(res.data)
-      //   }
-      // })
-      // that.setData({
-      //   disabled:true
-      // })
+      wx.request({
+        url: 'http://' + appData.host + ':8089/user/getSMS',
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          'telephone': that.data.telephone
+        },
+        success: function (res) {
+          that.data.res_code = res.data
+          console.log(res.data)
+        }
+      })
+      that.setData({
+        disabled:true
+      })
       var times = 60;
       var interval = setInterval(() => {
         
